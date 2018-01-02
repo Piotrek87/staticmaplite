@@ -35,7 +35,7 @@ Class staticMapLite
 	protected $tileSrcUrl = 'http://tile.openstreetmap.org/{Z}/{X}/{Y}.png';
 
 	protected $markerBaseDir = 'images/markers';
-	protected $osmLogo;# = 'images/osm_logo.png';
+	protected $osmLogo = 'images/osm_contribute.png';
 
 	protected $markerPrototype = array(
 		'filename' => 'ol-marker.png',
@@ -255,7 +255,7 @@ Class staticMapLite
 	public function copyrightNotice()
 	{
 		$logoImg = imagecreatefrompng($this->osmLogo);
-		imagecopy($this->image, $logoImg, imagesx($this->image) - imagesx($logoImg), imagesy($this->image) - imagesy($logoImg), 0, 0, imagesx($logoImg), imagesy($logoImg));
+		imagecopy($this->image, $logoImg, imagesx($this->image) - imagesx($logoImg), (imagesy($this->image) - imagesy($logoImg)) / 2, 0, 0, imagesx($logoImg), imagesy($logoImg));
 
 	}
 
